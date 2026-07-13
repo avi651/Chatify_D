@@ -1,0 +1,77 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Chatify Mock",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=mock",
+                "--dart-define=BASE_URL=http://localhost:8000",
+                "--dart-define=feature_flags=mock,offline_mode,show_logs"
+            ]
+        },
+        {
+            "name": "Chatify Dev (Local Backend)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=dev",
+                "--dart-define=BASE_URL=http://localhost:8000",
+                "--dart-define=feature_flags=websocket,offline_mode,push_notification,show_logs"
+            ]
+        },
+        {
+            "name": "Chatify Android Emulator",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=android",
+                "--dart-define=BASE_URL=http://10.0.2.2:8000",
+                "--dart-define=feature_flags=websocket,offline_mode,push_notification,show_logs"
+            ]
+        },
+        {
+            "name": "Chatify iOS Simulator",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=ios",
+                "--dart-define=BASE_URL=http://localhost:8000",
+                "--dart-define=feature_flags=websocket,offline_mode,push_notification,show_logs"
+            ]
+        },
+        {
+            "name": "Chatify Web",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=web",
+                "--dart-define=BASE_URL=http://localhost:8000",
+                "--dart-define=feature_flags=websocket,offline_mode,show_logs"
+            ]
+        },
+        {
+            "name": "Chatify Production",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define=ENV=prod",
+                "--dart-define=BASE_URL=https://api.chatify.com",
+                "--dart-define=feature_flags=websocket,push_notification"
+            ]
+        }
+    ]
+}
