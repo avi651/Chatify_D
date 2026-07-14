@@ -2,7 +2,6 @@ import 'package:chatify/core/theme/bloc/theme_bloc.dart';
 import 'package:chatify/core/theme/bloc/theme_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../presentation/splash_page.dart';
 
 class App extends StatelessWidget {
@@ -15,11 +14,9 @@ class App extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          title: "Chatify",
+          theme: ThemeData.light(),
 
-          theme: ThemeData.light(useMaterial3: true),
-
-          darkTheme: ThemeData.dark(useMaterial3: true),
+          darkTheme: ThemeData.dark(),
 
           themeMode: state.selectedThemeMode,
 

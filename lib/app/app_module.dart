@@ -1,5 +1,6 @@
-import 'package:chatify/presentation/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../presentation/splash_page.dart';
 
 class AppModule extends Module {
   @override
