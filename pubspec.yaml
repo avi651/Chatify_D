@@ -48,7 +48,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   hydrated_bloc: ^11.0.0
   dartz: ^0.10.1
-  flutter_modular: ^7.1.0
+  get_it: ^9.2.1 
   easy_localization: ^3.0.8
   dart_jsonwebtoken: ^3.4.1
   
@@ -68,6 +68,9 @@ dependencies:
   json_serializable: ^6.14.0
 
   web_socket_channel: ^3.0.3
+
+  auto_injector: ^2.2.0
+  go_router: ^17.3.0
 
 dev_dependencies:
   flutter_test:
