@@ -1,0 +1,11 @@
+{
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "dart.previewFlutterUiGuides": true,
+    "dart.showTodos": true,
+    "dart.completeFunctionCalls": true
+}
