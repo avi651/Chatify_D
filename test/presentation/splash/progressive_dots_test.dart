@@ -1,4 +1,4 @@
-import 'package:chatify/presentation/splash/widgets/splash_loader.dart';
+import 'package:chatify/core/widgets/progressive_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
