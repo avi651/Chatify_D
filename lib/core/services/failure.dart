@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'failure.freezed.dart';
 
 @freezed
@@ -7,12 +8,15 @@ class Failure with _$Failure {
 
   const factory Failure.multi({
     required List<Failure> failures,
+
     dynamic error,
   }) = MultiFailure;
 
   const factory Failure.multiProxy({
     required Failure noProxyFailure,
+
     required Failure proxyFailure,
+
     dynamic error,
   }) = MultiProxyFailure;
 
@@ -33,4 +37,9 @@ class Failure with _$Failure {
 
   const factory Failure.routeNotFound({String? message, Object? exception}) =
       RouteNotFoundFailure;
+
+  // Validation
+
+  const factory Failure.validation({required String message, String? field}) =
+      ValidationFailure;
 }

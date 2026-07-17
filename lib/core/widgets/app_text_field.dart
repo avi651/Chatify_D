@@ -22,6 +22,10 @@ class AppTextField extends StatelessWidget {
     this.validator,
 
     this.obscureText = false,
+
+    this.onChanged,
+
+    this.errorText,
   });
 
   final String label;
@@ -38,6 +42,10 @@ class AppTextField extends StatelessWidget {
 
   final bool obscureText;
 
+  final ValueChanged<String>? onChanged;
+
+  final String? errorText;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -49,12 +57,16 @@ class AppTextField extends StatelessWidget {
 
       obscureText: obscureText,
 
+      onChanged: onChanged,
+
       style: AppTextTheme.body(context),
 
       decoration: InputDecoration(
         labelText: label,
 
         hintText: hint,
+
+        errorText: errorText,
 
         labelStyle: AppTextTheme.small(context),
 

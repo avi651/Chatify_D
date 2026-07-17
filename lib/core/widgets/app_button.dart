@@ -16,7 +16,7 @@ class AppButton extends StatelessWidget {
 
   final String title;
 
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   final bool isLoading;
 
@@ -47,7 +47,13 @@ class AppButton extends StatelessWidget {
         ),
 
         child: isLoading
-            ? const SizedBox(height: 22, width: 22, child: ProgressiveDots())
+            ? const SizedBox(
+                height: 22,
+
+                width: 45,
+
+                child: ProgressiveDots(size: 8, spacing: 2),
+              )
             : Text(title, style: AppTextTheme.button(context)),
       ),
     );

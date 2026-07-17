@@ -1,3 +1,4 @@
+import 'package:chatify/core/app_bloc_provider/app_bloc_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -13,7 +14,7 @@ Future<void> main() async {
 
   setupDI();
 
-  runApp(const App());
+  runApp(const AppBlocProvider(child: App()));
 }
 
 Future<void> _initHydratedStorage() async {

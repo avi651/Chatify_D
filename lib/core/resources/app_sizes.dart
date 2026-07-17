@@ -1,7 +1,9 @@
 class AppSizes {
   AppSizes._();
 
+  // ==========================
   // Font Sizes
+  // ==========================
 
   static const double sp08 = 8;
 
@@ -24,12 +26,21 @@ class AppSizes {
   static const double sp32 = 32;
 
   static const double sp40 = 40;
+  static const double sp60 = 60;
 
-  // Widget Sizes
+  static const double sp100 = 100;
+
+  // ==========================
+  // Component Sizes
+  // ==========================
 
   static const double buttonHeight = 52;
 
   static const double inputHeight = 56;
+
+  // ==========================
+  // Icon Sizes
+  // ==========================
 
   static const double iconSmall = 20;
 

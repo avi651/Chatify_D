@@ -1,9 +1,12 @@
+import 'package:chatify/presentation/login/widgets/login_button.dart';
+import 'package:chatify/presentation/login/widgets/login_footer.dart';
 import 'package:flutter/material.dart';
-import 'package:chatify/core/resources/app_sizes.dart';
-import 'package:chatify/core/theme/app_text_theme.dart';
-import 'package:chatify/core/widgets/app_button.dart';
-import 'package:chatify/core/widgets/app_password_field.dart';
-import 'package:chatify/core/widgets/app_text_field.dart';
+
+import '../../../../core/resources/app_spacing.dart';
+
+import 'widgets/login_logo.dart';
+import 'widgets/login_header.dart';
+import 'widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -13,110 +16,31 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(AppSizes.sp24),
+          padding: const EdgeInsets.all(AppSpacing.lg),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              const SizedBox(height: AppSizes.sp40),
+              const SizedBox(height: AppSpacing.xl),
 
-              // Logo
-              Center(
-                child: Container(
-                  height: 100,
+              const LoginLogo(),
 
-                  width: 100,
+              const SizedBox(height: AppSpacing.xl),
 
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
+              const LoginHeader(),
 
-                    borderRadius: BorderRadius.circular(AppSizes.sp24),
-                  ),
+              const SizedBox(height: AppSpacing.xl),
 
-                  child: Icon(
-                    Icons.chat,
+              const LoginForm(),
 
-                    size: 60,
+              const SizedBox(height: AppSpacing.md),
 
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
-                ),
-              ),
+              const LoginButton(),
 
-              const SizedBox(height: AppSizes.sp32),
+              const SizedBox(height: AppSpacing.lg),
 
-              Text("Welcome Back", style: AppTextTheme.h2(context)),
-
-              const SizedBox(height: AppSizes.sp08),
-
-              Text(
-                "Login to continue chatting",
-                style: AppTextTheme.small(context),
-              ),
-
-              const SizedBox(height: AppSizes.sp32),
-
-              AppTextField(
-                label: "Email",
-
-                hint: "Enter your email",
-
-                icon: Icons.email_outlined,
-
-                keyboardType: TextInputType.emailAddress,
-              ),
-
-              const SizedBox(height: AppSizes.sp16),
-
-              AppPasswordField(label: "Password", hint: "Enter your password"),
-
-              const SizedBox(height: AppSizes.sp24),
-
-              Align(
-                alignment: Alignment.centerRight,
-
-                child: TextButton(
-                  onPressed: () {},
-
-                  child: Text(
-                    "Forgot Password?",
-
-                    style: AppTextTheme.bodyBold(
-                      context,
-                    ).copyWith(color: Theme.of(context).colorScheme.primary),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: AppSizes.sp16),
-
-              AppButton(title: "Login", onPressed: () {}),
-
-              const SizedBox(height: AppSizes.sp24),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: AppTextTheme.small(context),
-                  ),
-
-                  TextButton(
-                    onPressed: () {},
-
-                    child: Text(
-                      "Sign Up",
-
-                      style: AppTextTheme.bodyBold(
-                        context,
-                      ).copyWith(color: Theme.of(context).colorScheme.primary),
-                    ),
-                  ),
-                ],
-              ),
+              const LoginFooter(),
             ],
           ),
         ),

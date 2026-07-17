@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ProgressiveDots extends StatefulWidget {
-  const ProgressiveDots({super.key, this.size = 10});
+  const ProgressiveDots({super.key, this.size = 10, this.spacing = 4});
 
   final double size;
+
+  final double spacing;
 
   @override
   State<ProgressiveDots> createState() => _ProgressiveDotsState();
@@ -11,7 +13,7 @@ class ProgressiveDots extends StatefulWidget {
 
 class _ProgressiveDotsState extends State<ProgressiveDots>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+  late final AnimationController _controller;
 
   @override
   void initState() {
@@ -48,7 +50,7 @@ class _ProgressiveDotsState extends State<ProgressiveDots>
             final opacity = (_controller.value * 3 - index).clamp(0.3, 1.0);
 
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: widget.spacing),
 
               child: Dot(
                 key: Key("dot_$index"),
@@ -74,14 +76,12 @@ class Dot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: size,
 
       height: size,
 
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
 }

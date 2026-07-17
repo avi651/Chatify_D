@@ -1,9 +1,9 @@
 import 'package:chatify/presentation/login/login_page.dart';
+import 'package:chatify/presentation/splash/splash_page.dart';
+
 import 'package:go_router/go_router.dart';
 
-import '../presentation/splash/splash_page.dart';
-
-final appRouter = GoRouter(
+final GoRouter appRouter = GoRouter(
   initialLocation: '/splash',
 
   routes: [
@@ -19,9 +19,7 @@ final appRouter = GoRouter(
 
     GoRoute(
       path: '/login',
-
       name: 'login',
-
       builder: (context, state) {
         return const LoginPage();
       },

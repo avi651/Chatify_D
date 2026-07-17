@@ -16,6 +16,10 @@ class AppPasswordField extends StatefulWidget {
     this.controller,
 
     this.validator,
+
+    this.onChanged,
+
+    this.errorText,
   });
 
   final String label;
@@ -25,6 +29,10 @@ class AppPasswordField extends StatefulWidget {
   final TextEditingController? controller;
 
   final String? Function(String?)? validator;
+
+  final ValueChanged<String>? onChanged;
+
+  final String? errorText;
 
   @override
   State<AppPasswordField> createState() => _AppPasswordFieldState();
@@ -36,9 +44,13 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      key: const Key("password_field"),
+
       controller: widget.controller,
 
       validator: widget.validator,
+
+      onChanged: widget.onChanged,
 
       obscureText: _obscureText,
 
@@ -49,6 +61,8 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
 
         hintText: widget.hint,
 
+        errorText: widget.errorText,
+
         labelStyle: AppTextTheme.small(context),
 
         hintStyle: AppTextTheme.small(context),
@@ -56,6 +70,8 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
         prefixIcon: const Icon(Icons.lock_outline),
 
         suffixIcon: IconButton(
+          key: const Key("password_visibility_button"),
+
           onPressed: () {
             setState(() {
               _obscureText = !_obscureText;
