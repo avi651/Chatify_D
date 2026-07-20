@@ -55,7 +55,7 @@ extension FailurePatterns on Failure {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultiFailure value)?  multi,TResult Function( MultiProxyFailure value)?  multiProxy,TResult Function( UnknownFailure value)?  unknown,TResult Function( NoInternetConnectionFailure value)?  noInternetConnection,TResult Function( TimeoutFailure value)?  timeout,TResult Function( SerializationFailure value)?  serializationFailure,TResult Function( CanceledFailure value)?  canceled,TResult Function( UnauthenticatedFailure value)?  unauthenticated,TResult Function( RouteNotFoundFailure value)?  routeNotFound,TResult Function( ValidationFailure value)?  validation,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( MultiFailure value)?  multi,TResult Function( MultiProxyFailure value)?  multiProxy,TResult Function( UnknownFailure value)?  unknown,TResult Function( NoInternetConnectionFailure value)?  noInternetConnection,TResult Function( TimeoutFailure value)?  timeout,TResult Function( SerializationFailure value)?  serializationFailure,TResult Function( CanceledFailure value)?  canceled,TResult Function( UnaunthenticatedFailure value)?  unaunthenticated,TResult Function( RouteNotFoundFailure value)?  routeNotFound,TResult Function( ValidationFailure value)?  validation,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case MultiFailure() when multi != null:
@@ -65,8 +65,8 @@ return unknown(_that);case NoInternetConnectionFailure() when noInternetConnecti
 return noInternetConnection(_that);case TimeoutFailure() when timeout != null:
 return timeout(_that);case SerializationFailure() when serializationFailure != null:
 return serializationFailure(_that);case CanceledFailure() when canceled != null:
-return canceled(_that);case UnauthenticatedFailure() when unauthenticated != null:
-return unauthenticated(_that);case RouteNotFoundFailure() when routeNotFound != null:
+return canceled(_that);case UnaunthenticatedFailure() when unaunthenticated != null:
+return unaunthenticated(_that);case RouteNotFoundFailure() when routeNotFound != null:
 return routeNotFound(_that);case ValidationFailure() when validation != null:
 return validation(_that);case _:
   return orElse();
@@ -86,7 +86,7 @@ return validation(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultiFailure value)  multi,required TResult Function( MultiProxyFailure value)  multiProxy,required TResult Function( UnknownFailure value)  unknown,required TResult Function( NoInternetConnectionFailure value)  noInternetConnection,required TResult Function( TimeoutFailure value)  timeout,required TResult Function( SerializationFailure value)  serializationFailure,required TResult Function( CanceledFailure value)  canceled,required TResult Function( UnauthenticatedFailure value)  unauthenticated,required TResult Function( RouteNotFoundFailure value)  routeNotFound,required TResult Function( ValidationFailure value)  validation,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( MultiFailure value)  multi,required TResult Function( MultiProxyFailure value)  multiProxy,required TResult Function( UnknownFailure value)  unknown,required TResult Function( NoInternetConnectionFailure value)  noInternetConnection,required TResult Function( TimeoutFailure value)  timeout,required TResult Function( SerializationFailure value)  serializationFailure,required TResult Function( CanceledFailure value)  canceled,required TResult Function( UnaunthenticatedFailure value)  unaunthenticated,required TResult Function( RouteNotFoundFailure value)  routeNotFound,required TResult Function( ValidationFailure value)  validation,}){
 final _that = this;
 switch (_that) {
 case MultiFailure():
@@ -96,8 +96,8 @@ return unknown(_that);case NoInternetConnectionFailure():
 return noInternetConnection(_that);case TimeoutFailure():
 return timeout(_that);case SerializationFailure():
 return serializationFailure(_that);case CanceledFailure():
-return canceled(_that);case UnauthenticatedFailure():
-return unauthenticated(_that);case RouteNotFoundFailure():
+return canceled(_that);case UnaunthenticatedFailure():
+return unaunthenticated(_that);case RouteNotFoundFailure():
 return routeNotFound(_that);case ValidationFailure():
 return validation(_that);case _:
   throw StateError('Unexpected subclass');
@@ -116,7 +116,7 @@ return validation(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultiFailure value)?  multi,TResult? Function( MultiProxyFailure value)?  multiProxy,TResult? Function( UnknownFailure value)?  unknown,TResult? Function( NoInternetConnectionFailure value)?  noInternetConnection,TResult? Function( TimeoutFailure value)?  timeout,TResult? Function( SerializationFailure value)?  serializationFailure,TResult? Function( CanceledFailure value)?  canceled,TResult? Function( UnauthenticatedFailure value)?  unauthenticated,TResult? Function( RouteNotFoundFailure value)?  routeNotFound,TResult? Function( ValidationFailure value)?  validation,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( MultiFailure value)?  multi,TResult? Function( MultiProxyFailure value)?  multiProxy,TResult? Function( UnknownFailure value)?  unknown,TResult? Function( NoInternetConnectionFailure value)?  noInternetConnection,TResult? Function( TimeoutFailure value)?  timeout,TResult? Function( SerializationFailure value)?  serializationFailure,TResult? Function( CanceledFailure value)?  canceled,TResult? Function( UnaunthenticatedFailure value)?  unaunthenticated,TResult? Function( RouteNotFoundFailure value)?  routeNotFound,TResult? Function( ValidationFailure value)?  validation,}){
 final _that = this;
 switch (_that) {
 case MultiFailure() when multi != null:
@@ -126,8 +126,8 @@ return unknown(_that);case NoInternetConnectionFailure() when noInternetConnecti
 return noInternetConnection(_that);case TimeoutFailure() when timeout != null:
 return timeout(_that);case SerializationFailure() when serializationFailure != null:
 return serializationFailure(_that);case CanceledFailure() when canceled != null:
-return canceled(_that);case UnauthenticatedFailure() when unauthenticated != null:
-return unauthenticated(_that);case RouteNotFoundFailure() when routeNotFound != null:
+return canceled(_that);case UnaunthenticatedFailure() when unaunthenticated != null:
+return unaunthenticated(_that);case RouteNotFoundFailure() when routeNotFound != null:
 return routeNotFound(_that);case ValidationFailure() when validation != null:
 return validation(_that);case _:
   return null;
@@ -146,7 +146,7 @@ return validation(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( List<Failure> failures,  dynamic error)?  multi,TResult Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)?  multiProxy,TResult Function( dynamic error)?  unknown,TResult Function( dynamic error)?  noInternetConnection,TResult Function( dynamic error)?  timeout,TResult Function( dynamic error)?  serializationFailure,TResult Function( dynamic error)?  canceled,TResult Function( String? message,  Object? exception)?  unauthenticated,TResult Function( String? message,  Object? exception)?  routeNotFound,TResult Function( String message,  String? field)?  validation,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( List<Failure> failures,  dynamic error)?  multi,TResult Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)?  multiProxy,TResult Function( dynamic error)?  unknown,TResult Function( dynamic error)?  noInternetConnection,TResult Function( dynamic error)?  timeout,TResult Function( dynamic error)?  serializationFailure,TResult Function( dynamic error)?  canceled,TResult Function( String? message,  Object? exception)?  unaunthenticated,TResult Function( String? message,  Object? exception)?  routeNotFound,TResult Function( String message,  String? field)?  validation,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case MultiFailure() when multi != null:
 return multi(_that.failures,_that.error);case MultiProxyFailure() when multiProxy != null:
@@ -155,8 +155,8 @@ return unknown(_that.error);case NoInternetConnectionFailure() when noInternetCo
 return noInternetConnection(_that.error);case TimeoutFailure() when timeout != null:
 return timeout(_that.error);case SerializationFailure() when serializationFailure != null:
 return serializationFailure(_that.error);case CanceledFailure() when canceled != null:
-return canceled(_that.error);case UnauthenticatedFailure() when unauthenticated != null:
-return unauthenticated(_that.message,_that.exception);case RouteNotFoundFailure() when routeNotFound != null:
+return canceled(_that.error);case UnaunthenticatedFailure() when unaunthenticated != null:
+return unaunthenticated(_that.message,_that.exception);case RouteNotFoundFailure() when routeNotFound != null:
 return routeNotFound(_that.message,_that.exception);case ValidationFailure() when validation != null:
 return validation(_that.message,_that.field);case _:
   return orElse();
@@ -176,7 +176,7 @@ return validation(_that.message,_that.field);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( List<Failure> failures,  dynamic error)  multi,required TResult Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)  multiProxy,required TResult Function( dynamic error)  unknown,required TResult Function( dynamic error)  noInternetConnection,required TResult Function( dynamic error)  timeout,required TResult Function( dynamic error)  serializationFailure,required TResult Function( dynamic error)  canceled,required TResult Function( String? message,  Object? exception)  unauthenticated,required TResult Function( String? message,  Object? exception)  routeNotFound,required TResult Function( String message,  String? field)  validation,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( List<Failure> failures,  dynamic error)  multi,required TResult Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)  multiProxy,required TResult Function( dynamic error)  unknown,required TResult Function( dynamic error)  noInternetConnection,required TResult Function( dynamic error)  timeout,required TResult Function( dynamic error)  serializationFailure,required TResult Function( dynamic error)  canceled,required TResult Function( String? message,  Object? exception)  unaunthenticated,required TResult Function( String? message,  Object? exception)  routeNotFound,required TResult Function( String message,  String? field)  validation,}) {final _that = this;
 switch (_that) {
 case MultiFailure():
 return multi(_that.failures,_that.error);case MultiProxyFailure():
@@ -185,8 +185,8 @@ return unknown(_that.error);case NoInternetConnectionFailure():
 return noInternetConnection(_that.error);case TimeoutFailure():
 return timeout(_that.error);case SerializationFailure():
 return serializationFailure(_that.error);case CanceledFailure():
-return canceled(_that.error);case UnauthenticatedFailure():
-return unauthenticated(_that.message,_that.exception);case RouteNotFoundFailure():
+return canceled(_that.error);case UnaunthenticatedFailure():
+return unaunthenticated(_that.message,_that.exception);case RouteNotFoundFailure():
 return routeNotFound(_that.message,_that.exception);case ValidationFailure():
 return validation(_that.message,_that.field);case _:
   throw StateError('Unexpected subclass');
@@ -205,7 +205,7 @@ return validation(_that.message,_that.field);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( List<Failure> failures,  dynamic error)?  multi,TResult? Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)?  multiProxy,TResult? Function( dynamic error)?  unknown,TResult? Function( dynamic error)?  noInternetConnection,TResult? Function( dynamic error)?  timeout,TResult? Function( dynamic error)?  serializationFailure,TResult? Function( dynamic error)?  canceled,TResult? Function( String? message,  Object? exception)?  unauthenticated,TResult? Function( String? message,  Object? exception)?  routeNotFound,TResult? Function( String message,  String? field)?  validation,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( List<Failure> failures,  dynamic error)?  multi,TResult? Function( Failure noProxyFailure,  Failure proxyFailure,  dynamic error)?  multiProxy,TResult? Function( dynamic error)?  unknown,TResult? Function( dynamic error)?  noInternetConnection,TResult? Function( dynamic error)?  timeout,TResult? Function( dynamic error)?  serializationFailure,TResult? Function( dynamic error)?  canceled,TResult? Function( String? message,  Object? exception)?  unaunthenticated,TResult? Function( String? message,  Object? exception)?  routeNotFound,TResult? Function( String message,  String? field)?  validation,}) {final _that = this;
 switch (_that) {
 case MultiFailure() when multi != null:
 return multi(_that.failures,_that.error);case MultiProxyFailure() when multiProxy != null:
@@ -214,8 +214,8 @@ return unknown(_that.error);case NoInternetConnectionFailure() when noInternetCo
 return noInternetConnection(_that.error);case TimeoutFailure() when timeout != null:
 return timeout(_that.error);case SerializationFailure() when serializationFailure != null:
 return serializationFailure(_that.error);case CanceledFailure() when canceled != null:
-return canceled(_that.error);case UnauthenticatedFailure() when unauthenticated != null:
-return unauthenticated(_that.message,_that.exception);case RouteNotFoundFailure() when routeNotFound != null:
+return canceled(_that.error);case UnaunthenticatedFailure() when unaunthenticated != null:
+return unaunthenticated(_that.message,_that.exception);case RouteNotFoundFailure() when routeNotFound != null:
 return routeNotFound(_that.message,_that.exception);case ValidationFailure() when validation != null:
 return validation(_that.message,_that.field);case _:
   return null;
@@ -720,8 +720,8 @@ as dynamic,
 /// @nodoc
 
 
-class UnauthenticatedFailure extends Failure {
-  const UnauthenticatedFailure({this.message, this.exception}): super._();
+class UnaunthenticatedFailure extends Failure {
+  const UnaunthenticatedFailure({this.message, this.exception}): super._();
   
 
  final  String? message;
@@ -731,13 +731,13 @@ class UnauthenticatedFailure extends Failure {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$UnauthenticatedFailureCopyWith<UnauthenticatedFailure> get copyWith => _$UnauthenticatedFailureCopyWithImpl<UnauthenticatedFailure>(this, _$identity);
+$UnaunthenticatedFailureCopyWith<UnaunthenticatedFailure> get copyWith => _$UnaunthenticatedFailureCopyWithImpl<UnaunthenticatedFailure>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnauthenticatedFailure&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.exception, exception));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnaunthenticatedFailure&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.exception, exception));
 }
 
 
@@ -746,15 +746,15 @@ int get hashCode => Object.hash(runtimeType,message,const DeepCollectionEquality
 
 @override
 String toString() {
-  return 'Failure.unauthenticated(message: $message, exception: $exception)';
+  return 'Failure.unaunthenticated(message: $message, exception: $exception)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $UnauthenticatedFailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
-  factory $UnauthenticatedFailureCopyWith(UnauthenticatedFailure value, $Res Function(UnauthenticatedFailure) _then) = _$UnauthenticatedFailureCopyWithImpl;
+abstract mixin class $UnaunthenticatedFailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
+  factory $UnaunthenticatedFailureCopyWith(UnaunthenticatedFailure value, $Res Function(UnaunthenticatedFailure) _then) = _$UnaunthenticatedFailureCopyWithImpl;
 @useResult
 $Res call({
  String? message, Object? exception
@@ -765,17 +765,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$UnauthenticatedFailureCopyWithImpl<$Res>
-    implements $UnauthenticatedFailureCopyWith<$Res> {
-  _$UnauthenticatedFailureCopyWithImpl(this._self, this._then);
+class _$UnaunthenticatedFailureCopyWithImpl<$Res>
+    implements $UnaunthenticatedFailureCopyWith<$Res> {
+  _$UnaunthenticatedFailureCopyWithImpl(this._self, this._then);
 
-  final UnauthenticatedFailure _self;
-  final $Res Function(UnauthenticatedFailure) _then;
+  final UnaunthenticatedFailure _self;
+  final $Res Function(UnaunthenticatedFailure) _then;
 
 /// Create a copy of Failure
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = freezed,Object? exception = freezed,}) {
-  return _then(UnauthenticatedFailure(
+  return _then(UnaunthenticatedFailure(
 message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,exception: freezed == exception ? _self.exception : exception ,
   ));

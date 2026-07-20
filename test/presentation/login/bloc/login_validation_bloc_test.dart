@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc.dart';
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_event.dart';
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_state.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_event.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

@@ -1,7 +1,7 @@
 import 'package:chatify/core/services/failure.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/validators/email_validator.dart';
-import '../../../../core/validators/password_validator.dart';
+import '../../../../../core/validators/email_validator.dart';
+import '../../../../../core/validators/password_validator.dart';
 import 'login_validation_event.dart';
 import 'login_validation_state.dart';
 

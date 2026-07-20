@@ -1,4 +1,4 @@
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_bloc.dart';
 import 'package:chatify/presentation/login/widgets/login_form.dart';
 
 import 'package:flutter/material.dart';

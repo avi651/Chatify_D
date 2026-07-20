@@ -1,6 +1,7 @@
 import 'package:chatify/core/di/injection.dart';
 import 'package:chatify/core/theme/bloc/theme_bloc.dart';
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_bloc/login_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_bloc.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +19,8 @@ class AppBlocProvider extends StatelessWidget {
         BlocProvider<LoginValidationBloc>(
           create: (_) => getIt<LoginValidationBloc>(),
         ),
+
+        BlocProvider<LoginBloc>(create: (_) => getIt<LoginBloc>()),
 
         // Theme
         BlocProvider<ThemeBloc>(create: (_) => getIt<ThemeBloc>()),

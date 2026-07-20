@@ -1,5 +1,7 @@
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc.dart';
-import 'package:chatify/presentation/bloc/login_bloc/login_validation_state.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_bloc/login_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_bloc/login_event.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_bloc.dart';
+import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_state.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,12 +17,15 @@ class LoginButton extends StatelessWidget {
       builder: (context, state) {
         return AppButton(
           title: "Login",
-
           isLoading: false,
-
           onPressed: state.isValid
               ? () {
-                  debugPrint("Login Clicked");
+                  context.read<LoginBloc>().add(
+                    LoginEvent.login(
+                      email: state.email,
+                      password: state.password,
+                    ),
+                  );
                 }
               : null,
         );

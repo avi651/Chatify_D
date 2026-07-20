@@ -32,8 +32,8 @@ class Failure with _$Failure {
 
   const factory Failure.canceled([dynamic error]) = CanceledFailure;
 
-  const factory Failure.unauthenticated({String? message, Object? exception}) =
-      UnauthenticatedFailure;
+  const factory Failure.unaunthenticated({String? message, Object? exception}) =
+      UnaunthenticatedFailure;
 
   const factory Failure.routeNotFound({String? message, Object? exception}) =
       RouteNotFoundFailure;
