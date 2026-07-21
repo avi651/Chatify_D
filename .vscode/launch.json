@@ -22,9 +22,9 @@
             "args": [
                 "--dart-define=ENV=dev",
                 "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
                 "--dart-define=API_KEY=",
-                "--dart-define=OPEN_API_KEY=",
-                "--dart-define=feature_flags=mock,no_log_jornal,show_logs,no_proxy"
+                "--dart-define=OPEN_API_KEY="
             ]
         },
         {
@@ -34,11 +34,11 @@
             "flutterMode": "debug",
             "program": "lib/main.dart",
             "args": [
-                "--dart-define=ENV=staging",
+                "--dart-define=ENV=dev",
                 "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
                 "--dart-define=API_KEY=",
-                "--dart-define=OPEN_API_KEY=",
-                "--dart-define=feature_flags=mock,no_log_jornal,show_logs,no_proxy"
+                "--dart-define=OPEN_API_KEY="
             ]
         },
         {
@@ -48,11 +48,11 @@
             "flutterMode": "release",
             "program": "lib/main.dart",
             "args": [
-                "--dart-define=ENV=prod",
+                "--dart-define=ENV=dev",
                 "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
                 "--dart-define=API_KEY=",
-                "--dart-define=OPEN_API_KEY=",
-                "--dart-define=feature_flags=no_log_journal,no_proxy"
+                "--dart-define=OPEN_API_KEY="
             ]
         }
     ]

@@ -15,7 +15,10 @@ class Env {
     defaultValue: 'http://localhost:8000',
   );
 
-  static const websocketUrl = String.fromEnvironment("WEBSOCKET_URL");
+  static const websocketUrl = String.fromEnvironment(
+    "WEBSOCKET_URL",
+    defaultValue: "ws://127.0.0.1:8000/ws/",
+  );
 
   //HydratedStoragePassword
   static const hydratedStoragePassword = String.fromEnvironment(
