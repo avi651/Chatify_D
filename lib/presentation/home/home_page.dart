@@ -1,51 +1,61 @@
-import 'package:chatify/core/di/injection.dart';
-import 'package:chatify/presentation/bloc/chat_cubit/chat_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatefulWidget {
+import '../bloc/home_bloc/home_bloc.dart';
+import '../bloc/home_bloc/home_state.dart';
+
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  late final ChatCubit _chatCubit;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _chatCubit = getIt<ChatCubit>();
-
-    _connectSocket();
-  }
-
-  Future<void> _connectSocket() async {
-    try {
-      await _chatCubit.connect();
-
-      debugPrint("✅ Socket Connected");
-
-      await _chatCubit.sendMessage("Hello FastAPI");
-
-      debugPrint("📤 Dummy message sent");
-    } catch (e) {
-      debugPrint("❌ Socket Error: $e");
-    }
-  }
-
-  @override
-  void dispose() {
-    _chatCubit.disconnect();
-    _chatCubit.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Checking Socket Connection...")),
+    return Scaffold(
+      appBar: AppBar(title: const Text("Chatify")),
+
+      body: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+          if (state.conversations.isEmpty) {
+            return const Center(child: Text("No Conversations"));
+          }
+
+          return ListView.builder(
+            itemCount: state.conversations.length,
+
+            itemBuilder: (context, index) {
+              final conversation = state.conversations[index];
+
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text(
+                    conversation.name.isNotEmpty
+                        ? conversation.name[0].toUpperCase()
+                        : "?",
+                  ),
+                ),
+
+                title: Text(
+                  conversation.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+
+                subtitle: Text(
+                  conversation.lastMessage ??
+                      (conversation.isGroup ? "Group" : "Personal Chat"),
+
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+
+                trailing: Text(
+                  conversation.createdAt.substring(11, 16),
+                  style: const TextStyle(fontSize: 12),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

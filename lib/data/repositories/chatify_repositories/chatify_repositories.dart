@@ -1,5 +1,6 @@
 import 'package:chatify/core/network/base_datasource.dart';
 import 'package:chatify/core/network_info/network_info.dart';
+import 'package:chatify/domain/entities/conversation_entity/conversation_entity.dart';
 import 'package:chatify/domain/i_chatify_repositories/i_chatify_repositories.dart';
 import 'package:dartz/dartz.dart';
 import 'package:chatify/core/services/failure.dart';
@@ -45,5 +46,20 @@ class ChatifyRepositories implements IChatifyRepositories {
     } else {
       return left(const Failure.noInternetConnection());
     }
+  }
+
+  @override
+  RepoEitherResponse<List<ConversationEntity>> getConversations() async {
+    final result = await client.get("/conversations");
+
+    return result.fold((failure) => left(failure), (response) {
+      final data = response.data as List;
+
+      final conversations = data
+          .map((json) => ConversationEntity.fromJson(json))
+          .toList();
+
+      return right(conversations);
+    });
   }
 }

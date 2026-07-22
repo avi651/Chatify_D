@@ -21,8 +21,8 @@
             "program": "lib/main.dart",
             "args": [
                 "--dart-define=ENV=dev",
-                "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
-                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
+                "--dart-define=BASE_URL=http://192.168.0.101:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://192.168.0.101:8000/ws/",
                 "--dart-define=API_KEY=",
                 "--dart-define=OPEN_API_KEY="
             ]
@@ -35,8 +35,8 @@
             "program": "lib/main.dart",
             "args": [
                 "--dart-define=ENV=dev",
-                "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
-                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
+                "--dart-define=BASE_URL=http://192.168.0.101:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://192.168.0.101:8000/ws/",
                 "--dart-define=API_KEY=",
                 "--dart-define=OPEN_API_KEY="
             ]
@@ -49,8 +49,8 @@
             "program": "lib/main.dart",
             "args": [
                 "--dart-define=ENV=dev",
-                "--dart-define=BASE_URL=http://127.0.0.1:8000/api/v1/",
-                "--dart-define=WEBSOCKET_URL=ws://127.0.0.1:8000/ws/",
+                "--dart-define=BASE_URL=http://192.168.0.101:8000/api/v1/",
+                "--dart-define=WEBSOCKET_URL=ws://192.168.0.101:8000/ws/",
                 "--dart-define=API_KEY=",
                 "--dart-define=OPEN_API_KEY="
             ]
