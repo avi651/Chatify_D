@@ -1,19 +1,32 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
 class SecureStorage {
-  SecureStorage._();
-  static const _storage = FlutterSecureStorage();
-  static const String accessTokenKey = "access_token";
+  final FlutterSecureStorage storage;
 
-  static Future<void> saveAccessToken(String token) async {
-    await _storage.write(key: accessTokenKey, value: token);
+  SecureStorage({required this.storage});
+
+  Future<void> saveAccessToken(String token) async {
+    await storage.write(key: "access_token", value: token);
   }
 
-  static Future<String?> getAccessToken() async {
-    return await _storage.read(key: accessTokenKey);
+  Future<String?> getAccessToken() async {
+    return await storage.read(key: "access_token");
   }
 
-  static Future<void> clearToken() async {
-    await _storage.delete(key: accessTokenKey);
+  Future<int?> getUserIdFromToken() async {
+    final token = await getAccessToken();
+
+    if (token == null) {
+      return null;
+    }
+
+    final payload = JwtDecoder.decode(token);
+
+    return payload["user_id"];
+  }
+
+  Future<void> clear() async {
+    await storage.deleteAll();
   }
 }

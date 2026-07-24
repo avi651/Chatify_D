@@ -7,17 +7,21 @@ import 'login_event.dart';
 import 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc(this.loginUseCase) : super(LoginState.initial()) {
+  LoginBloc(this.loginUseCase, this.secureStorage)
+    : super(LoginState.initial()) {
     on<LoginSubmitted>(_onLogin);
   }
 
   final LoginUseCase loginUseCase;
+
+  final SecureStorage secureStorage;
 
   Future<void> _onLogin(LoginSubmitted event, Emitter<LoginState> emit) async {
     emit(state.copyWith(isLoading: true, errorMessage: null, isSuccess: false));
 
     final result = await loginUseCase(
       email: event.email,
+
       password: event.password,
     );
 
@@ -31,7 +35,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       },
 
       (response) async {
-        await SecureStorage.saveAccessToken(response.accessToken);
+        // Save JWT Token
+
+        await secureStorage.saveAccessToken(response.accessToken);
 
         if (emit.isDone) return;
 

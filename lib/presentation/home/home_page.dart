@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../bloc/home_bloc/home_bloc.dart';
 import '../bloc/home_bloc/home_state.dart';
@@ -35,7 +36,9 @@ class HomePage extends StatelessWidget {
 
                 title: Text(
                   conversation.name,
+
                   maxLines: 1,
+
                   overflow: TextOverflow.ellipsis,
                 ),
 
@@ -44,13 +47,25 @@ class HomePage extends StatelessWidget {
                       (conversation.isGroup ? "Group" : "Personal Chat"),
 
                   maxLines: 1,
+
                   overflow: TextOverflow.ellipsis,
                 ),
 
                 trailing: Text(
-                  conversation.createdAt.substring(11, 16),
+                  conversation.createdAt.length >= 16
+                      ? conversation.createdAt.substring(11, 16)
+                      : "",
+
                   style: const TextStyle(fontSize: 12),
                 ),
+
+                onTap: () {
+                  context.push(
+                    '/chat/${conversation.id}',
+
+                    extra: conversation.name,
+                  );
+                },
               );
             },
           );

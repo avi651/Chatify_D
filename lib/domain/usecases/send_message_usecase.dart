@@ -1,11 +1,18 @@
-import 'package:chatify/domain/i_chat_repository/i_chat_repository.dart';
+import 'package:chatify/core/services/typedef.dart';
+import 'package:chatify/domain/i_message_repository/i_message_repository.dart';
 
 class SendMessageUseCase {
-  final IChatRepository repository;
+  final IMessageRepository repository;
 
   SendMessageUseCase(this.repository);
 
-  Future<void> call(String message) {
-    return repository.send(message);
+  RepoEitherResponse<void> call({
+    required int conversationId,
+    required String message,
+  }) {
+    return repository.sendMessage(
+      conversationId: conversationId,
+      message: message,
+    );
   }
 }

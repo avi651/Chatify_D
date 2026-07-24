@@ -1,7 +1,9 @@
 import 'package:chatify/core/di/injection.dart';
 import 'package:chatify/core/theme/bloc/theme_bloc.dart';
+
 import 'package:chatify/presentation/bloc/home_bloc/home_bloc.dart';
 import 'package:chatify/presentation/bloc/home_bloc/home_event.dart';
+
 import 'package:chatify/presentation/bloc/login_bloc/login_bloc/login_bloc.dart';
 import 'package:chatify/presentation/bloc/login_bloc/login_validation_bloc/login_validation_bloc.dart';
 

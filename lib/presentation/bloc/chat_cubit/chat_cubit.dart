@@ -16,13 +16,11 @@ class ChatCubit extends Cubit<ChatState> {
     required ReceiveMessageUseCase receiveMessageUseCase,
   }) : _connect = connectSocketUseCase,
        _disconnect = disconnectSocketUseCase,
-       _send = sendMessageUseCase,
        _receive = receiveMessageUseCase,
        super(const ChatState());
 
   final ConnectSocketUseCase _connect;
   final DisconnectSocketUseCase _disconnect;
-  final SendMessageUseCase _send;
   final ReceiveMessageUseCase _receive;
 
   StreamSubscription<String>? _subscription;
@@ -48,10 +46,6 @@ class ChatCubit extends Cubit<ChatState> {
     } catch (e) {
       emit(state.copyWith(status: ChatStatus.error, error: e.toString()));
     }
-  }
-
-  Future<void> sendMessage(String message) async {
-    await _send(message);
   }
 
   Future<void> disconnect() async {

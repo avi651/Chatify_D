@@ -9,9 +9,11 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class ApiClient extends BaseDatasource {
-  ApiClient({required this.dio});
+  ApiClient({required this.dio, required this.secureStorage});
 
   final Dio dio;
+
+  final SecureStorage secureStorage;
 
   @override
   Dio get client => dio;
@@ -20,7 +22,7 @@ class ApiClient extends BaseDatasource {
     final requestHeaders = {"Content-Type": "application/json", ...headers};
 
     if (authenticate) {
-      final token = await SecureStorage.getAccessToken();
+      final token = await secureStorage.getAccessToken();
 
       if (token != null && token.isNotEmpty) {
         requestHeaders["Authorization"] = "Bearer $token";
@@ -48,9 +50,9 @@ class ApiClient extends BaseDatasource {
       final response = await dio.get<T>(
         path,
 
-        options: Options(headers: requestHeaders),
-
         queryParameters: queryParameters,
+
+        options: Options(headers: requestHeaders),
       );
 
       return right(response);
@@ -81,9 +83,9 @@ class ApiClient extends BaseDatasource {
 
         data: data,
 
-        options: Options(headers: requestHeaders),
-
         queryParameters: queryParameters,
+
+        options: Options(headers: requestHeaders),
       );
 
       return right(response);
